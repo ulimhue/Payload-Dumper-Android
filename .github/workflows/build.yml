@@ -53,12 +53,14 @@ jobs:
         ./gradlew assembleRelease \
           -x test \
           -x lint
+        echo "=== 查找生成的 APK 文件 ==="
+        find app/build/outputs/apk -name "*.apk" -type f
         
     - name: 上传签名 APK
       uses: actions/upload-artifact@v4
       with:
         name: signed-apk
-        path: app/build/outputs/apk/release/app-release-signed.apk
+        path: app/build/outputs/apk/release/app-release.apk
         retention-days: 30
         
     - name: 清理密钥库
