@@ -60,6 +60,9 @@ jobs:
     - name: Install cargo-ndk
       run: cargo install cargo-ndk --locked
       
+    - name: Install protobuf compiler
+      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+      
     - name: Build Rust libraries for Android
       working-directory: lib/payload-dumper-android-rs
       run: |
